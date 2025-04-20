@@ -1,5 +1,6 @@
 import bgright from "./assets/bg-right.svg";
 import circle from "./assets/circle.svg";
+import plus from "./assets/akar-icons_plus.svg";
 
 function App() {
   const currentTime = new Date().toLocaleString("us-en", {
@@ -19,25 +20,28 @@ function App() {
         <div className="relative">
           <img src={bgright} alt="bgright" />
           <div className="absolute right-[28px] bottom-[16px] font-ruso">
-            <h2 className="font-normal text-[18px] text-white ml-[127px]">
+            <h2 className="font-normal text-[18px] text-white ml-[145px]">
               {currentDate}
             </h2>
             <h1 className="font-normal text-5xl text-white">{currentTime}</h1>
           </div>
         </div>
-        <div className="">
-          <div className="relative pl-[29px] pt-[23px] mb-[362px]">
+        <div className="flex justify-between gap-[10px]">
+          <div className="relative pl-[29px] pt-[23px] mb-[362px] cursor-pointer">
             <img
-              className="absolute left-[30px] top-[33px]"
+              className="absolute left-[32px] top-[35px]"
               src={circle}
               alte="circle"
             />
             <input
-              className="w-[275px] h-[49px] pl-[30px] rounded-[5px]"
+              className="w-[275px] h-[49px] pl-[30px] rounded-[5px]  bg-[#ebeff2]"
               type="text"
               placeholder="Note"
             />
           </div>
+          <button className="w-[88px] h-[49px] rounded-[5px] gap-2.5 bg-[#20EEB0] mt-6">
+            <img className="pl-[21px] cursor-pointer" src={plus} alt="Plus" />
+          </button>
         </div>
       </div>
     </div>
