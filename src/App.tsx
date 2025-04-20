@@ -13,9 +13,9 @@ function App() {
   });
   console.log(currentDate.toLocaleString());
   return (
-    <div className="h-screen flex justify-center items-center gap-[306px]">
+    <div className="h-screen flex justify-center items-center gap-[306px] bg-[#EEEEEE]">
       <h1 className="font-bold text-8xl text-[#007FDB]">ToDo</h1>
-      <div className="rounded-[10px]">
+      <div className="rounded-[10px] bg-white">
         <div className="relative">
           <img src={bgright} alt="bgright" />
           <div className="absolute right-[28px] bottom-[16px] font-ruso">
@@ -25,7 +25,20 @@ function App() {
             <h1 className="font-normal text-5xl text-white">{currentTime}</h1>
           </div>
         </div>
-        <input type="text" placeholder="Note" />
+        <div className="">
+          <div className="relative pl-[29px] pt-[23px] mb-[362px]">
+            <img
+              className="absolute left-[30px] top-[33px]"
+              src={circle}
+              alte="circle"
+            />
+            <input
+              className="w-[275px] h-[49px] pl-[30px] rounded-[5px]"
+              type="text"
+              placeholder="Note"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
