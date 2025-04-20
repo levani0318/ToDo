@@ -26,7 +26,7 @@ function App() {
             <h1 className="font-normal text-5xl text-white">{currentTime}</h1>
           </div>
         </div>
-        <div className="flex justify-between gap-[10px]">
+        <div className="flex justify-around gap-[10px]">
           <div className="relative pl-[29px] pt-[23px] mb-[362px] cursor-pointer">
             <img
               className="absolute left-[32px] top-[35px]"
@@ -39,7 +39,7 @@ function App() {
               placeholder="Note"
             />
           </div>
-          <button className="w-[88px] h-[49px] rounded-[5px] gap-2.5 bg-[#20EEB0] mt-6">
+          <button className="w-[88px] h-[49px] rounded-[5px] gap-2.5 bg-[#20EEB0] mt-[21.5px]">
             <img className="pl-[21px] cursor-pointer" src={plus} alt="Plus" />
           </button>
         </div>
