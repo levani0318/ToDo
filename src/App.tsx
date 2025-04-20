@@ -31,7 +31,7 @@ function App() {
             <img
               className="absolute left-[32px] top-[35px]"
               src={circle}
-              alte="circle"
+              alt="circle"
             />
             <input
               className="w-[275px] h-[49px] pl-[30px] rounded-[5px]  bg-[#ebeff2]"
