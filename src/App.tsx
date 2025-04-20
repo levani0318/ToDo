@@ -39,8 +39,8 @@ function App() {
               placeholder="Note"
             />
           </div>
-          <button className="w-[88px] h-[49px] rounded-[5px] gap-2.5 bg-[#20EEB0] mt-[21.5px]">
-            <img className="pl-[21px] cursor-pointer" src={plus} alt="Plus" />
+          <button className="w-[88px] h-[49px] rounded-[5px] gap-2.5 bg-[#20EEB0] mt-[21.5px] cursor-pointer">
+            <img className="pl-[21px]" src={plus} alt="Plus" />
           </button>
         </div>
       </div>
