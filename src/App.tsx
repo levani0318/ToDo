@@ -1,4 +1,5 @@
 import bgright from "./assets/bg-right.svg";
+import circle from "./assets/circle.svg";
 
 function App() {
   const currentTime = new Date().toLocaleString("us-en", {
@@ -17,13 +18,14 @@ function App() {
       <div className="rounded-[10px]">
         <div className="relative">
           <img src={bgright} alt="bgright" />
-          <div className="absolute right-[28px] bottom-[16px]">
-            <h2 className="font-normal text-[18px] text-white ml-[140px]">
+          <div className="absolute right-[28px] bottom-[16px] font-ruso">
+            <h2 className="font-normal text-[18px] text-white ml-[127px]">
               {currentDate}
             </h2>
             <h1 className="font-normal text-5xl text-white">{currentTime}</h1>
           </div>
         </div>
+        <input type="text" placeholder="Note" />
       </div>
     </div>
   );
