@@ -1,6 +1,7 @@
 import bgright from "./assets/bg-right.svg";
 import circle from "./assets/circle.svg";
 import plus from "./assets/akar-icons_plus.svg";
+import { useState } from "react";
 
 function App() {
   const currentTime = new Date().toLocaleString("us-en", {
@@ -13,6 +14,25 @@ function App() {
     day: "numeric",
   });
   console.log(currentDate.toLocaleString());
+
+  interface TodoTypes {
+    id: string;
+    title: string;
+  }
+
+  const [todos, setTodos] = useState<TodoTypes[]>([]);
+
+  const [value, setValue] = useState("");
+
+  const addTodo = () => {
+    const newTodo = {
+      id: crypto.randomUUID(),
+      title: value,
+    };
+    setTodos([...todos, newTodo]);
+    setValue("");
+  };
+
   return (
     <div className="h-screen flex justify-center items-center gap-[306px] bg-[#EEEEEE]">
       <h1 className="font-bold text-8xl text-[#007FDB]">ToDo</h1>
@@ -26,8 +46,8 @@ function App() {
             <h1 className="font-normal text-5xl text-white">{currentTime}</h1>
           </div>
         </div>
-        <div className="flex justify-around gap-[10px]">
-          <div className="relative pl-[29px] pt-[23px] mb-[362px] cursor-pointer">
+        <div className="flex justify-around gap-[10px] pb-2">
+          <div className="relative pl-[29px] pt-[23px] cursor-pointer">
             <img
               className="absolute left-[32px] top-[35px]"
               src={circle}
@@ -36,12 +56,26 @@ function App() {
             <input
               className="w-[275px] h-[49px] pl-[30px] rounded-[5px]  bg-[#ebeff2]"
               type="text"
+              value={value}
               placeholder="Note"
+              onChange={(e) => setValue(e.target.value)}
             />
           </div>
-          <button className="w-[88px] h-[49px] rounded-[5px] gap-2.5 bg-[#20EEB0] mt-[21.5px] cursor-pointer">
+          <button
+            onClick={addTodo}
+            className="w-[88px] h-[49px] rounded-[5px] gap-2.5 bg-[#20EEB0] mt-[21.5px] cursor-pointer"
+          >
             <img className="pl-[21px]" src={plus} alt="Plus" />
           </button>
+        </div>
+        <div className="px-[45px] mb-[78px]">
+          {todos.map((todo) => {
+            return (
+              <div key={todo.id} className="">
+                <h1>{todo.title}</h1>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
