@@ -75,8 +75,18 @@ function App() {
         <div className="px-[45px] mb-[78px]">
           {todos.map((todo) => {
             return (
-              <div key={todo.id} className="flex justify-between gap-{10px}">
-                <h1>{todo.title}</h1>
+              <div
+                key={todo.id}
+                className="flex justify-between gap-{10px} items-center"
+              >
+                <div>
+                  <h1 className="font-medium text-[18px] text-[#0D0D0D]">
+                    {todo.title}
+                  </h1>
+                  <span className="font-normal text-[14px] text-[#888888]">
+                    today at {currentTime}
+                  </span>
+                </div>
                 <img
                   className=""
                   onClick={() => deleteTodo(todo.id)}
