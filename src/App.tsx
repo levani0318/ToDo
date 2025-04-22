@@ -2,6 +2,7 @@ import bgright from "./assets/bg-right.svg";
 import circle from "./assets/circle.svg";
 import plus from "./assets/akar-icons_plus.svg";
 import { useState } from "react";
+import deleteIcon from "./assets/akar-icons_trash-can.svg";
 
 function App() {
   const currentTime = new Date().toLocaleString("us-en", {
@@ -31,6 +32,9 @@ function App() {
     };
     setTodos([...todos, newTodo]);
     setValue("");
+  };
+  const deleteTodo = (id: string) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   return (
@@ -71,8 +75,15 @@ function App() {
         <div className="px-[45px] mb-[78px]">
           {todos.map((todo) => {
             return (
-              <div key={todo.id} className="">
+              <div key={todo.id} className="flex justify-between gap-{10px}">
                 <h1>{todo.title}</h1>
+                <img
+                  className=""
+                  on
+                  onClick={() => deleteTodo(todo.id)}
+                  src={deleteIcon}
+                  alt="delet"
+                />
               </div>
             );
           })}
