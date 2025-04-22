@@ -14,6 +14,12 @@ function App() {
     weekday: "short",
     day: "numeric",
   });
+  const now = new Date();
+  const pastTime = now.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
   console.log(currentDate.toLocaleString());
 
   interface TodoTypes {
@@ -29,6 +35,7 @@ function App() {
     const newTodo = {
       id: crypto.randomUUID(),
       title: value,
+      pastTime,
     };
     setTodos([...todos, newTodo]);
     setValue("");
@@ -84,7 +91,7 @@ function App() {
                     {todo.title}
                   </h1>
                   <span className="font-normal text-[14px] text-[#888888]">
-                    today at {currentTime}
+                    today at {pastTime}
                   </span>
                 </div>
                 <img
