@@ -79,7 +79,6 @@ function App() {
                 <h1>{todo.title}</h1>
                 <img
                   className=""
-                  on
                   onClick={() => deleteTodo(todo.id)}
                   src={deleteIcon}
                   alt="delet"
