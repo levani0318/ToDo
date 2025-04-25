@@ -14,36 +14,35 @@ function App() {
     weekday: "short",
     day: "numeric",
   });
-  const now = new Date();
-  const pastTime = now.toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-
-  console.log(currentDate.toLocaleString());
 
   interface TodoTypes {
     id: string;
     title: string;
+    createdAt: string;
   }
 
   const [todos, setTodos] = useState<TodoTypes[]>([]);
-
   const [value, setValue] = useState("");
 
   const addTodo = () => {
+    if (!value.trim()) return;
+
     const newTodo = {
       id: crypto.randomUUID(),
       title: value,
-      pastTime,
+      createdAt: new Date().toLocaleString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+      }),
     };
     setTodos([...todos, newTodo]);
     setValue("");
   };
+
   const deleteTodo = (id: string) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
-
   return (
     <div className="h-screen flex justify-center items-center gap-[306px] bg-[#EEEEEE]">
       <h1 className="font-bold text-8xl text-[#007FDB]">ToDo</h1>
@@ -80,29 +79,27 @@ function App() {
           </button>
         </div>
         <div className="px-[45px] mb-[78px]">
-          {todos.map((todo) => {
-            return (
-              <div
-                key={todo.id}
-                className="flex justify-between gap-{10px} items-center"
-              >
-                <div>
-                  <h1 className="font-medium text-[18px] text-[#0D0D0D]">
-                    {todo.title}
-                  </h1>
-                  <span className="font-normal text-[14px] text-[#888888]">
-                    today at {pastTime}
-                  </span>
-                </div>
-                <img
-                  className=""
-                  onClick={() => deleteTodo(todo.id)}
-                  src={deleteIcon}
-                  alt="delet"
-                />
+          {todos.map((todo) => (
+            <div
+              key={todo.id}
+              className="flex justify-between gap-[10px] items-center py-2"
+            >
+              <div>
+                <h1 className="font-medium text-[18px] text-[#0D0D0D]">
+                  {todo.title}
+                </h1>
+                <span className="font-normal text-[14px] text-[#888888]">
+                  Today at {todo.createdAt}
+                </span>
               </div>
-            );
-          })}
+              <img
+                className="cursor-pointer"
+                onClick={() => deleteTodo(todo.id)}
+                src={deleteIcon}
+                alt="delete"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>
